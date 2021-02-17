@@ -36,7 +36,7 @@ while 1:
     print(now)
 
     if now > open + open * 0.001:
-        server1.time_to_sail()
+        server1.time_to_sale()
         while now > open + open * 0.0005:
 
             data = yf.download(tickers='CSCO', period="0")
