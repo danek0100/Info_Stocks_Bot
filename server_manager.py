@@ -3,6 +3,8 @@ from server import Server
 # Получаем из config.py наш api-token
 from config import vk_api_token
 
+
+
 # Raw Package
 import numpy as np
 import pandas as pd
@@ -27,6 +29,9 @@ open = 47.1316
 
 server1.star_bot()
 server1.your_price(open)
+#server1.StartKeyBoard()
+
+
 
 while 1:
     # Купили за 1685,6
