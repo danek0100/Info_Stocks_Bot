@@ -35,7 +35,7 @@ class Server:
         rand = random.randint(0, 2147483646)
         self.send_msg(151726618, "Пробит нижний порог, пора продавать!", rand)
 
-    def time_to_sail(self):
+    def time_to_sale(self):
         rand = random.randint(0, 2147483646)
         self.send_msg(151726618, "Достигнут верхний порог прибыли, пора забирать деньги!", rand)
 
