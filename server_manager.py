@@ -58,7 +58,7 @@ while 1:
             print(now)
 
             if stonck.state == 0 and now > stonck.high_gr:
-                server.time_to_sail(user, stonck.key, now)
+                server.time_to_sale(user, stonck.key, now)
                 stonck.state = 1
 
             elif stonck.state == 1 and now < stonck.high_gr - 0.1 * stonck.high_gr:

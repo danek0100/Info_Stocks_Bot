@@ -87,7 +87,7 @@ class Server:
         self.send_msg(user.id, str(user.name) + ", пробит нижний порог, пора продавать!\n"
                                                 "Акция " + str(stonck) + " - " + str(price_now) + '$', rand)
 
-    def time_to_sail(self, user, stonck, price_now):
+    def time_to_sale(self, user, stonck, price_now):
         rand = get_random_id()
         self.send_msg(user.id, str(user.name) + ", достигнут верхний порог прибыли, пора забирать деньги!\n"
                                                 "Акция " + str(stonck) + " - " + str(price_now) + '$', rand)
