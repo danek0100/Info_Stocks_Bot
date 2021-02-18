@@ -11,7 +11,7 @@ from vk_api.utils import get_random_id
 from config import vk_api_token
 
 vk_session = vk_api.VkApi(token=vk_api_token)
-Lslongpoll = VkBotLongPoll(vk_session, group_id=202539555)
+Lslongpoll = VkBotLongPoll(vk_session, group_id=)
 
 
 
@@ -78,28 +78,33 @@ class Server:
                # finally:
                 #    empty_keyboard = create_empty_keyboard()
 
-    def star_bot(self):
+    def star_bot(self, user):
         rand = get_random_id()
-        self.send_msg(151726618, "Бот запущен!", rand)
+        self.send_msg(user.id, str(user.name) + ", бот запущен!", rand)
 
-    def risk_high(self):
+    def risk_high(self, user, stonck, price_now):
         rand = get_random_id()
-        self.send_msg(151726618, "Пробит нижний порог, пора продавать!", rand)
+        self.send_msg(user.id, str(user.name) + ", пробит нижний порог, пора продавать!\n"
+                                                "Акция " + str(stonck) + " - " + str(price_now) + '$', rand)
 
-    def time_to_sail(self):
+    def time_to_sail(self, user, stonck, price_now):
         rand = get_random_id()
-        self.send_msg(151726618, "Достигнут верхний порог прибыли, пора забирать деньги!", rand)
+        self.send_msg(user.id, str(user.name) + ", достигнут верхний порог прибыли, пора забирать деньги!\n"
+                                                "Акция " + str(stonck) + " - " + str(price_now) + '$', rand)
 
-    def time_left(self):
+    def time_left(self, user, stonck, price_now):
         rand = get_random_id()
-        self.send_msg(151726618, "Время упущено, деньги ушли!", rand)
+        self.send_msg(user.id, str(user.name) + ", время упущенно, денги ушли!\n"
+                                                "Акция " + str(stonck) + " - " + str(price_now) + '$', rand)
 
-    def have_chance(self):
+    def have_chance(self, user, stonck, price_now):
         rand = get_random_id()
-        self.send_msg(151726618, "Цена стабилизировалось, вы имеете шансы!", rand)
+        self.send_msg(user.id, str(user.name) + ", цена стабилизировалсь, у вас есть шансы!\n"
+                                                "Акция " + str(stonck) + " - " + str(price_now) + '$', rand)
 
-    def your_price(self, price):
-        rand = get_random_id()
-        self.send_msg(151726618, "Вы купили за " + str(price) + " $", rand)
+    def your_active(self, user):
+        for stonck in user.stons:
+            rand = get_random_id()
+            self.send_msg(user.id, "Вы купили " + str(stonck.key) + " за " + str(stonck.start_price) + " $", rand)
 
 
